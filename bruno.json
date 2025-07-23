@@ -1,0 +1,19 @@
+{
+  "version": "1",
+  "name": "Load Test Data",
+  "type": "collection",
+  "ignore": [
+    ".git",
+    "node_modules",
+    "utils",
+    ".prettierrc.js"
+  ],
+  "scripts": {
+    "moduleWhitelist": [
+      "electron"
+    ],
+    "filesystemAccess": {
+      "allow": true
+    }
+  }
+}

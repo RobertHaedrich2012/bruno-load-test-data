@@ -1,0 +1,38 @@
+meta {
+  name: Example request
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://echo.usebruno.com
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "customerId": "{{collection.customerId}}",
+    "data": [
+      {
+        "id": "{{request.services.1}}"
+      },
+      {
+        "id": "{{request.services.2}}"
+      },
+      {
+        "id": "{{request.services.3}}"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  request.services.1: default example 1
+  request.services.2: default example 2
+  request.services.3: default example 3
+}
+
+settings {
+  encodeUrl: true
+}

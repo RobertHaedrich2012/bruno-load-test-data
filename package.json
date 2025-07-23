@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "version": "1",
+  "workspaces": [
+    "utils/*"
+  ],
+  "scripts": {
+    "prettier": "prettier --write --ignore-unknown --cache --cache-strategy=content ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.4",
+    "electron": "^33.2.1",
+    "prettier": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.9.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "bruno-utils-electron-prompt",
+  "description": "Util to create electron prompt windows in Bruno API client collections",
+  "private": true,
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

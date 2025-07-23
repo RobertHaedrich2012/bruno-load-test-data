@@ -1,0 +1,19 @@
+meta {
+  name: Clear runtime variables
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://echo.usebruno.com
+  body: none
+  auth: inherit
+}
+
+script:pre-request {
+  bru.deleteAllVars();
+}
+
+settings {
+  encodeUrl: true
+}

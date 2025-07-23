@@ -1,0 +1,24 @@
+# EditorConfig is awesome: https://EditorConfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+quote_type = single # Needed for VS Code and the Prettier rule "singleQuote: true", to be consistent.
+trim_trailing_whitespace = true
+
+[*.{json,jsonc}]
+indent_size = 2
+
+[*.md]
+indent_size = 2
+trim_trailing_whitespace = false
+
+[*.{yaml,yml}]
+indent_size = 2
+
+[*.bru]
+indent_size = 2

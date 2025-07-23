@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        :root {
+            --background-color: #fff;
+            --font-color: #343434;
+            --title-font-color: #565656;
+            --title-background-color: #f1f1f1;
+            --button-primary-background-color: #e2e6ea;
+            --button-primary-border-color: #dae0e5;
+            --button-secondary-background-color: transparent;
+            --button-hover-border-color: #696969;
+            --default-radius: 3px;
+            --close-button-color: #a3a3a3;
+            --close-button-hover-color: #757575;
+            --select-background-color: #ffffff;
+            --select-border-color: #cccccc;
+            --select-hover-border-color: #696969;
+            --select-arrow-color: #8c8c8c;
+            --select-arrow-hover-color: var(--select-hover-border-color);
+        }
+
+        /* noinspection CssUnusedSymbol */
+        html.dark-mode {
+            --background-color: #303031;
+            --font-color: #cccccc;
+            --title-font-color: #cccccc;
+            --title-background-color: #262627;
+            --button-primary-background-color: #195387;
+            --button-primary-border-color: transparent;
+            --close-button-color: #79797a;
+            --close-button-hover-color: #ababab;
+            --select-background-color: #414141;
+            --select-border-color: transparent;
+            --select-arrow-hover-color: var(--select-arrow-color);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            box-sizing: border-box;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        body:not(.loaded) {
+            overflow: hidden;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        body:not(.loaded)::before {
+            content: 'Loading ...';
+            position: fixed;
+            background-color: var(--background-color);
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        html,
+        body,
+        button {
+            color: var(--font-color);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                Segoe UI,
+                Roboto,
+                Helvetica Neue,
+                Arial,
+                sans-serif;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        #title,
+        #content-wrapper,
+        #content {
+            padding: 12px;
+        }
+
+        #title {
+            color: var(--title-font-color);
+            background-color: var(--title-background-color);
+            cursor: default;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #title:empty {
+            display: none;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        .close-button {
+            font-size: 20px;
+            color: var(--close-button-color);
+            height: 20px;
+            background-color: var(--title-background-color);
+            cursor: pointer;
+            padding: 6px;
+            margin: -6px;
+        }
+        .close-button:hover {
+            color: var(--close-button-hover-color);
+        }
+
+        #content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: column;
+            margin: -12px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .button {
+            padding: 6px 18px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-radius: var(--default-radius);
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.47;
+            height: 34px;
+        }
+
+        .button + .button {
+            margin-left: 8px;
+        }
+
+        .button:hover,
+        .button:active,
+        .button:focus {
+            border-color: var(--button-hover-border-color);
+            outline: none;
+        }
+
+        .button--primary {
+            background-color: var(--button-primary-background-color);
+            border-color: var(--button-primary-border-color);
+        }
+
+        .button--secondary {
+            background-color: var(--button-secondary-background-color);
+        }
+
+        pre:has(> code:empty) {
+            display: none;
+        }
+
+        code {
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        .select-container {
+            position: relative;
+            display: inline-block;
+            width: fit-content;
+            min-width: 200px;
+        }
+
+        /* noinspection CssUnusedSymbol */
+        .select-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid var(--select-arrow-color);
+            pointer-events: none;
+        }
+
+        .select-container:hover select {
+            border-color: var(--select-hover-border-color);
+        }
+
+        /* noinspection CssUnusedSymbol */
+        .select-container:hover::after{
+            border-top-color: var(--select-arrow-hover-color);
+        }
+
+        .select-container select {
+            appearance: none;
+            -webkit-appearance: none;
+            /* noinspection CssUnknownProperty */
+            -moz-appearance: none;
+            width: 100%;
+            min-width: 0;
+            padding: 10px 36px 10px 12px;
+            border: 1px solid var(--select-border-color);
+            border-radius: var(--default-radius);
+            background-color: var(--select-background-color);
+            font-size: 13px;
+            font-family: inherit;
+            font-weight: 500;
+            color: var(--font-color);
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="title"></div>
+    <div id="content-wrapper">
+        <div id="content">Loading ...</div>
+    </div>
+    <div id="buttons">
+        <button class="button button--secondary" id="cancel">Cancel</button>
+        <button class="button button--primary" id="ok">Ok</button>
+    </div>
+</div>
+<script src="./prompt.js"></script>
+</body>
+</html>

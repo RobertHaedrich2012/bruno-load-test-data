@@ -1,0 +1,23 @@
+meta {
+  name: Load test data
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://echo.usebruno.com
+  body: text
+  auth: inherit
+}
+
+body:text {
+  ✅ Done
+}
+
+script:pre-request {
+  await require('./utils/load-test-data')();
+}
+
+settings {
+  encodeUrl: true
+}

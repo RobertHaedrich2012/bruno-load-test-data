@@ -1,0 +1,13 @@
+{
+  "name": "bruno-utils-load-test-data",
+  "description": "Util to load test data in Bruno API client collections",
+  "private": true,
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "dependencies": {
+    "prismjs": "^1.30.0"
+  }
+}

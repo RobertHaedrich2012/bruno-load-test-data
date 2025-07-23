@@ -1,0 +1,10 @@
+# OS specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings
+.idea/
+
+# Node.js / npm
+node_modules/
