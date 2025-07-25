@@ -12,7 +12,7 @@
      - electron
      - prettier
 3. Activate the **Developer Mode** in Bruno.
-4. Run the example request **Example request** in Bruno. You will get these response:
+4. Run the request **Example request** in Bruno. You will get these response:
    ```json
    {
      "customerId": "default customer ID",
@@ -30,7 +30,7 @@
    }
    ```
 5. Run the request **Load test data** and select **Collection 1** and **Request example 1**.  
-    Run the example request **Example Request** again. You will get these response:
+    Run the request **Example Request** again. You will get these response:
    ```json
    {
      "customerId": "New-Customer-ID-1",
